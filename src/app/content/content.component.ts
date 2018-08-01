@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Routes } from '@angular/router'
 
 @Component({
   selector: 'app-content',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  private navLinks = [
+    {path: 'tickets', label: 'Tickets'},
+    {path: 'results', label: 'Results'}
+  ]
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
