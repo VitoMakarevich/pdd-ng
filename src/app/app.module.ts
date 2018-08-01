@@ -1,25 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import {RouterModule, Router, Routes} from '@angular/router'
+import {RouterModule, Routes} from '@angular/router'
+import {HttpClientModule} from '@angular/common/http'
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatTabsModule} from '@angular/material/tabs'
+import {MatCardModule} from '@angular/material/card'
+import {MatGridListModule} from '@angular/material/grid-list'
 
 import { AppComponent } from './app.component'
 import { NavigationComponent } from './navigation/navigation.component'
 import { ContentComponent } from './content/content.component'
 import { TicketsComponent } from './content/tickets/tickets.component'
 import { ResultsComponent } from './content/results/results.component'
-import {MatGridListModule} from '@angular/material/grid-list'
+
+import { CardComponent } from './content/tickets/card/card.component'
+import { TicketComponent } from './content/ticket/ticket.component'
+import { TicketService } from './services/ticket.service'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tickets', pathMatch: 'full' },
   {
-    path: 'tickets', component: TicketsComponent
+    path: '',
+    redirectTo: 'tickets',
+    pathMatch: 'full'
   },
   {
-    path: 'results', component: ResultsComponent
+    path: 'tickets',
+    component: TicketsComponent
+  },
+  {
+    path: 'tickets/:id',
+    component: TicketComponent
+  },
+  {
+    path: 'results',
+    component: ResultsComponent
   }
 ]
 
@@ -30,16 +46,20 @@ const routes: Routes = [
     ContentComponent,
     TicketsComponent,
     ResultsComponent,
+    CardComponent,
+    TicketComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatTabsModule,
     RouterModule.forRoot(routes),
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
