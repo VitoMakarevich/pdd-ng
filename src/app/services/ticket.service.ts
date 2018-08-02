@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Ticket } from '@assets/models'
+import { Ticket, TicketsResponse, TicketContent } from '@assets/models'
 import {map, delay} from 'rxjs/operators'
-
-export interface TicketsResponse {
-  tickets: Ticket[]
-}
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +15,8 @@ export class TicketService {
       .pipe(
         map(ticketsResponse => ticketsResponse.tickets)
       )
+  }
+  public getTicket(id: String) {
+    return this.http.get<TicketContent>(`http://localhost/api/ticket?id=${id}`)
   }
 }

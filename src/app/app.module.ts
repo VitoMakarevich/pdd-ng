@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatCardModule} from '@angular/material/card'
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 import { AppComponent } from './app.component'
 import { NavigationComponent } from './navigation/navigation.component'
