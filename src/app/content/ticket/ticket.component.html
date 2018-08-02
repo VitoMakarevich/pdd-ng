@@ -1,7 +1,11 @@
-<mat-tab-group>
-  <app-question 
-    *ngFor="let question of getQuestions()"
-    [question]='question'
-  >
-  </app-question >
-</mat-tab-group>
+<div > 
+  <mat-tab-group *ngIf="!loading">
+    <mat-tab [label]='question.id' *ngFor="let question of getQuestions()">
+      <app-question 
+        [question]='question'
+      >
+      </app-question >
+    </mat-tab>
+  </mat-tab-group>
+  <app-loading *ngIf="loading"></app-loading>
+</div>

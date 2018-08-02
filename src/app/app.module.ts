@@ -18,7 +18,8 @@ import { ResultsComponent } from './content/results/results.component'
 import { CardComponent } from './content/tickets/card/card.component'
 import { TicketComponent } from './content/ticket/ticket.component'
 import { TicketService } from './services/ticket.service'
-import { QuestionComponent } from './content/question/question.component'
+import { QuestionComponent } from './content/question/question.component';
+import { LoadingComponent } from './common/loading/loading.component'
 
 const routes: Routes = [
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
     CardComponent,
     TicketComponent,
     QuestionComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,12 +5,5 @@
     >
     </app-card>
   </div>
-  <div class="ticket__loading-wrapper" *ngIf="loading">
-    <mat-spinner 
-      class="ticket__loading"
-      [color] = 'primary'
-      [strokeWidth] = 5
-    >
-    </mat-spinner>
-  </div>
+  <app-loading *ngIf="loading"> </app-loading>
 </div>
