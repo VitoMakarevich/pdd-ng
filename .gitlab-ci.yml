@@ -11,4 +11,3 @@ deploy_stage:
     - rm ./package-lock.json
     - npm install
     - ./node_modules/@angular/cli/bin/ng lint
-    - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
