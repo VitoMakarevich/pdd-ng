@@ -1,3 +1,7 @@
-<p>
-  {{id}}
-</p>
+<mat-tab-group>
+  <app-question 
+    *ngFor="let question of getQuestions()"
+    [question]='question'
+  >
+  </app-question >
+</mat-tab-group>

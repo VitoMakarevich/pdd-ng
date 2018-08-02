@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Ticket, TicketsResponse, TicketContent } from '@assets/models'
 import {map, delay} from 'rxjs/operators'
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'

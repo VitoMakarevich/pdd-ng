@@ -18,6 +18,7 @@ import { ResultsComponent } from './content/results/results.component'
 import { CardComponent } from './content/tickets/card/card.component'
 import { TicketComponent } from './content/ticket/ticket.component'
 import { TicketService } from './services/ticket.service'
+import { QuestionComponent } from './content/question/question.component'
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'tickets/:id',
-    component: TicketComponent
+    component: TicketComponent,
   },
   {
     path: 'results',
@@ -48,6 +49,7 @@ const routes: Routes = [
     ResultsComponent,
     CardComponent,
     TicketComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,
