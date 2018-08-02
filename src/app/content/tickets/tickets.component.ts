@@ -9,11 +9,15 @@ import { TicketService } from '../../services/ticket.service'
 export class TicketsComponent implements OnInit {
 
   private tickets: Ticket[]
+  private loading: boolean
 
-  constructor(private ticketService: TicketService) { }
+  constructor(private ticketService: TicketService) {this.loading = true }
 
   ngOnInit() {
-    this.ticketService.getTickets().subscribe(ticketsResponse => this.tickets = ticketsResponse.tickets)
+    this.ticketService.getTickets().subscribe(tickets => {
+      this.loading = false
+      this.tickets = tickets
+    })
   }
 
 }

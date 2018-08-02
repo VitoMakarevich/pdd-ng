@@ -1,6 +1,16 @@
-<mat-grid-list cols="5">
-  <app-card *ngFor="let ticket of tickets"
-    [ticket]="ticket"
-  >
-  </app-card>
-</mat-grid-list>
+<div class="ticket__wrapper">
+  <div class="ticket__list" *ngIf="!loading">
+    <app-card *ngFor="let ticket of tickets"
+      [ticket]="ticket"
+    >
+    </app-card>
+  </div>
+  <div class="ticket__loading-wrapper" *ngIf="loading">
+    <mat-spinner 
+      class="ticket__loading"
+      [color] = 'primary'
+      [strokeWidth] = 5
+    >
+    </mat-spinner>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "name": "web-pdd-ng",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +24,7 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

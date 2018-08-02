@@ -1,0 +1,13 @@
+.ticket {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__loading-wrapper {
+    height: calc(100vh - 113px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
