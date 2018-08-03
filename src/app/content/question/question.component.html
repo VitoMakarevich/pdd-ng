@@ -1,1 +1,20 @@
-  <img *ngIf='getImage()' [src]='getImage()' />
+<div class="question">
+  <img 
+    *ngIf='getImage()'
+    class="question__image"
+    [src]='getImage()' 
+  />
+  <p> {{getText()}} </p>
+  <mat-radio-group 
+    class="question__answers"
+  >
+    <app-answer
+      *ngFor="let answer of getAnswers()"
+      class="question__answer"
+      (onAnswer)="onAnswer($event)"
+      [questionId]="question.id"
+      [answer]="answer"
+    >
+    </app-answer>
+  </mat-radio-group>
+</div>

@@ -21,3 +21,8 @@ export interface TicketContent {
 export interface TicketsResponse {
   tickets: Ticket[]
 }
+
+export interface UserAnswer {
+  answerId: Number,
+  questionId: Number
+}

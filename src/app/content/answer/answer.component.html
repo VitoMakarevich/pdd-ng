@@ -1,0 +1,7 @@
+<mat-radio-button
+  [value]="answer.id"
+  (click)="answered()"
+  [disabled]='isAnswered'
+>
+  {{answer.text}}
+</mat-radio-button>

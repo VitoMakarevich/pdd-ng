@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatCardModule} from '@angular/material/card'
+import {MatRadioModule} from '@angular/material/radio'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 import { AppComponent } from './app.component'
@@ -20,6 +21,7 @@ import { TicketComponent } from './content/ticket/ticket.component'
 import { TicketService } from './services/ticket.service'
 import { QuestionComponent } from './content/question/question.component'
 import { LoadingComponent } from './common/loading/loading.component'
+import { AnswerComponent } from './content/answer/answer.component'
 
 const routes: Routes = [
   {
@@ -52,6 +54,7 @@ const routes: Routes = [
     TicketComponent,
     QuestionComponent,
     LoadingComponent,
+    AnswerComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatProgressSpinnerModule,
     MatCardModule,
+    MatRadioModule,
   ],
   providers: [TicketService],
   bootstrap: [AppComponent]

@@ -4,3 +4,23 @@
   justify-content: center;
   align-items: center;
 }
+
+.question {
+  margin: 3rem;
+
+  &__image {
+    width: 100%;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__answer {
+    margin: {
+      top: .5rem;
+      bottom: .5rem;
+    }
+  }
+}
