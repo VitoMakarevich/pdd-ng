@@ -3,9 +3,10 @@
   [value]="answer.id"
   (click)="answered()"
 >
-{{answer.text}}
+<span class="answer__text">{{answer.text}}</span>
+
 </mat-radio-button>
-<span *ngIf='isQuestionAnswered'>
+<span *ngIf='isQuestionAnswered' class="answer__text">
     <mat-icon
       *ngIf='answer.isTrue'
     >
