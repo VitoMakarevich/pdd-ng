@@ -24,5 +24,6 @@ export interface TicketsResponse {
 
 export interface UserAnswer {
   answerId: Number,
-  questionId: Number
+  questionId: Number,
+  isTrue: Boolean,
 }

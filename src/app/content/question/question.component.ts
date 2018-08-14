@@ -11,7 +11,7 @@ import { TicketAnswerService } from '../../services/ticket-answer.service'
 export class QuestionComponent implements OnInit {
   @Input() question: Question
 
-  constructor(private ticketAnswerService: TicketAnswerService) { }
+  constructor() { }
 
   private getId() {
     return this.question.id
@@ -34,14 +34,6 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  onAnswer(answerId) {
-    const userAnswer: UserAnswer = {
-      questionId: this.question.id,
-      answerId: answerId,
-    }
-    this.ticketAnswerService.setAnswer(userAnswer)
   }
 
 }

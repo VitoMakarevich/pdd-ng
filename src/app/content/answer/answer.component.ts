@@ -12,22 +12,23 @@ export class AnswerComponent implements OnInit {
   @Input() questionId: Number
   @Output() answerEmitter = new EventEmitter<Number>()
 
-  private isAnsweredTrue: Boolean
-  private isAnswered: Boolean
+  private isQuestionAnswered: Boolean
   constructor(private ticketAnswer: TicketAnswerService) {
-    this.isAnsweredTrue = false
-    this.isAnswered = false
+    this.isQuestionAnswered = false
   }
 
   ngOnInit() {
     this.ticketAnswer.getAnswer().subscribe((userAnswer: UserAnswer) => {
       if (this.isThisQuestion(userAnswer)) {
-        this.isAnswered = true
-      }
-      if (this.isThisAnswer(userAnswer)) {
-        this.isAnsweredTrue = true
+        this.isQuestionAnswered = true
       }
     })
+  }
+
+  private getAnswerStatus(userAnswer: UserAnswer) {
+    if (this.isThisQuestion(userAnswer)) {
+      this.isQuestionAnswered = true
+    }
   }
 
   private isThisQuestion(userAnswer: UserAnswer) {
@@ -40,8 +41,14 @@ export class AnswerComponent implements OnInit {
   }
 
   private answered() {
-    const answerId = this.answer.id
-    this.answerEmitter.emit(answerId)
+    if (!this.isQuestionAnswered) {
+      const answer: UserAnswer = {
+        answerId: this.answer.id,
+        questionId: this.questionId,
+        isTrue: this.answer.isTrue
+      }
+      this.ticketAnswer.setAnswer(answer)
+    }
   }
 
 }

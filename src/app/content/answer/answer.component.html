@@ -1,7 +1,20 @@
 <mat-radio-button
+  *ngIf='!isQuestionAnswered'
   [value]="answer.id"
   (click)="answered()"
-  [disabled]='isAnswered'
 >
-  {{answer.text}}
+{{answer.text}}
 </mat-radio-button>
+<span *ngIf='isQuestionAnswered'>
+    <mat-icon
+      *ngIf='answer.isTrue'
+    >
+        done
+    </mat-icon>
+    <mat-icon
+      *ngIf='!answer.isTrue'
+    >
+        close
+    </mat-icon>
+  {{answer.text}}
+</span> 

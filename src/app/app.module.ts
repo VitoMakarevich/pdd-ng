@@ -9,19 +9,21 @@ import {MatTabsModule} from '@angular/material/tabs'
 import {MatCardModule} from '@angular/material/card'
 import {MatRadioModule} from '@angular/material/radio'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatIconModule} from '@angular/material/icon'
+import {MatTableModule} from '@angular/material/table'
 
 import { AppComponent } from './app.component'
 import { NavigationComponent } from './navigation/navigation.component'
 import { ContentComponent } from './content/content.component'
 import { TicketsComponent } from './content/tickets/tickets.component'
 import { ResultsComponent } from './content/results/results.component'
-
 import { CardComponent } from './content/tickets/card/card.component'
 import { TicketComponent } from './content/ticket/ticket.component'
 import { TicketService } from './services/ticket.service'
 import { QuestionComponent } from './content/question/question.component'
 import { LoadingComponent } from './common/loading/loading.component'
 import { AnswerComponent } from './content/answer/answer.component'
+import { TicketResultComponent } from './content/ticket-result/ticket-result.component'
 
 const routes: Routes = [
   {
@@ -34,9 +36,14 @@ const routes: Routes = [
     component: TicketsComponent
   },
   {
+    path: 'tickets/:id/result',
+    component: TicketResultComponent,
+  },
+  {
     path: 'tickets/:id',
     component: TicketComponent,
   },
+
   {
     path: 'results',
     component: ResultsComponent
@@ -55,9 +62,11 @@ const routes: Routes = [
     QuestionComponent,
     LoadingComponent,
     AnswerComponent,
+    TicketResultComponent,
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -66,6 +75,7 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatCardModule,
     MatRadioModule,
+    MatIconModule,
   ],
   providers: [TicketService],
   bootstrap: [AppComponent]

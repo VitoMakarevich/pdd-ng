@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { TicketService } from '../../services/ticket.service'
 import { TicketContent, Question } from '@assets/models'
 import { Observable, from } from 'rxjs'
 import { concat, map, switchMap } from 'rxjs/operators'
+import { TicketAnswerService } from 'src/app/services/ticket-answer.service'
 
 @Component({
   selector: 'app-ticket',
@@ -18,7 +19,9 @@ export class TicketComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private ticketService: TicketService
+    private ticketService: TicketService,
+    private ticketAnswer: TicketAnswerService,
+    private router: Router,
   ) { }
 
   private getQuestions() {
@@ -27,13 +30,27 @@ export class TicketComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true
-    return this.route.params.pipe(
+    this.route.params.pipe(
       switchMap(({id}) => this.ticketService.getTicket(id))
-    ).subscribe((ticketContent: any) => {
-      this.loading = false
-      this.ticketId = ticketContent.id
-      this.questions = ticketContent.questions
-    })
+    ).subscribe(
+      (ticketContent: any) => {
+        this.loading = false
+        this.ticketId = ticketContent.id
+        this.questions = ticketContent.questions
+      }
+    )
+    this.ticketAnswer.getAnswer().subscribe(
+      {
+        complete: () => {
+          this.router.navigate(
+            ['result'],
+            {
+              relativeTo: this.route
+            }
+          )
+        }
+      }
+    )
   }
 
 }
