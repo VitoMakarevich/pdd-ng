@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
-import { Answer, UserAnswer } from '@assets/models'
+import { Answer, UserAnswer } from '../../models'
 import { TicketAnswerService } from '../../services/ticket-answer.service'
 
 @Component({

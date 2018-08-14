@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core'
-import {Ticket} from '@assets/models'
-
+import {Ticket} from '../../../models'
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',

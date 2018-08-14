@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, AfterViewInit, ViewChild} from '@angular/core'
-import { Question, Answer, UserAnswer } from '@assets/models'
+import { Question, Answer, UserAnswer } from '../../models'
 import { AnswerComponent } from '../answer/answer.component'
 import { TicketAnswerService } from '../../services/ticket-answer.service'
 

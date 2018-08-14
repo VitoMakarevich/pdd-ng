@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import {Ticket} from '@assets/models'
+import {Ticket} from '../../models'
 import { TicketService } from '../../services/ticket.service'
 @Component({
   selector: 'app-tickets',

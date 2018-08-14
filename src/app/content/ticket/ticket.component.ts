@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { TicketService } from '../../services/ticket.service'
-import { TicketContent, Question } from '@assets/models'
+import { TicketContent, Question } from '../../models'
 import { Observable, from } from 'rxjs'
 import { concat, map, switchMap } from 'rxjs/operators'
-import { TicketAnswerService } from 'src/app/services/ticket-answer.service'
+import { TicketAnswerService } from '../../services/ticket-answer.service'
 
 @Component({
   selector: 'app-ticket',

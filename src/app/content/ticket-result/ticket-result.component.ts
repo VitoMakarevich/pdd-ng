@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { TicketAnswerService } from '../../services/ticket-answer.service'
-import { UserAnswer } from '@assets/models'
+import { UserAnswer } from '../..//models'
 
 @Component({
   selector: 'app-ticket-result',
