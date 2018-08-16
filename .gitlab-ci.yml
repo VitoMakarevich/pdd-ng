@@ -1,15 +1,8 @@
 image: trion/ng-cli-karma
 
-
-
 cache:
   paths:
     - node_modules/
-
-trigger_build:
-  stage: deploy
-  script:
-    - "curl -X POST -F token=f0b98eaa735a6e5afad728b9211ea2 -F ref=dev https://gitlab.com/api/v4/projects/7705408/trigger/pipeline"
 
 deploy_stage:
   stage: deploy
