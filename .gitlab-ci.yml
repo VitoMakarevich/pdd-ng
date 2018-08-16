@@ -5,14 +5,14 @@ cache:
     - node_modules/
 
 build_stage:
-  start: build
+  stage: build
   environment: Stage
   script:
     - rm ./package-lock.json
     - npm install
 
 test_stage:
-  start: test
+  stage: test
   environment: Stage
   script:
     - ./node_modules/@angular/cli/bin/ng lint
