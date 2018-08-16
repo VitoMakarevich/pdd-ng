@@ -44,4 +44,4 @@ deploy_dev:
     name: development
     url: https://dev.pddbel.tk
   script:
-    - echo "deploy dev"
+    - rsync -av --delete public /srv/nginx/$CI_COMMIT_REF_SLUG
