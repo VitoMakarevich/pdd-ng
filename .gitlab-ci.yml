@@ -1,14 +1,10 @@
-image: trion/ng-cli-karma
+image: alpine:latest
 
 stages:
   - install
   - lint
   - build
   - deploy
-
-cache:
-  paths:
-    - node_modules/
 
 install_stage:
   stage: install
