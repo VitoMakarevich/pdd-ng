@@ -1,14 +1,29 @@
 image: trion/ng-cli-karma
 
+stages:
+  - install
+  - lint
+  - build
+
 cache:
   paths:
     - node_modules/
 
-build_stage:
-  stage: build
+install_stage:
+  stage: install
   environment: Stage
   script:
     - rm ./package-lock.json
     - npm install
+
+lint_stage:
+  stage: lint
+  environment: Stage
+  script:
     - ./node_modules/@angular/cli/bin/ng lint
+    
+build_stage:
+  stage: build
+  environment: Stage
+  script:
     - ./node_modules/@angular/cli/bin/ng build
