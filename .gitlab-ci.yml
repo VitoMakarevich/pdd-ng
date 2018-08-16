@@ -12,6 +12,7 @@ cache:
 
 before_script:
   - npm install
+  - apt install rsync
 
 lint_stage:
   stage: lint
