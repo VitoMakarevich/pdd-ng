@@ -4,10 +4,11 @@ cache:
   paths:
     - node_modules/
 
-deploy_stage:
-  stage: deploy
+build_stage:
+  stage: build
   environment: Stage
   script:
     - rm ./package-lock.json
     - npm install
     - ./node_modules/@angular/cli/bin/ng lint
+    - ./node_modules/@angular/cli/bin/ng build
