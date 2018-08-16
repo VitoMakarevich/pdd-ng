@@ -28,6 +28,7 @@ build_stage:
 
 deploy_prod:
   stage: deploy
+  when: manual
   only:
     - master
   environment:
