@@ -10,11 +10,8 @@ cache:
   paths:
     - node_modules/
 
-install_stage:
-  stage: install
-  script:
-    - rm ./package-lock.json
-    - npm install
+before_script:
+  - npm install
 
 lint_stage:
   stage: lint
@@ -23,8 +20,11 @@ lint_stage:
     
 build_stage:
   stage: build
+  artifacts:
+    paths:
+      - dist
   script:
-    - ./node_modules/@angular/cli/bin/ng build
+    - ./node_modules/@angular/cli/bin/ng build --progress false
 
 deploy_prod:
   stage: deploy
@@ -45,4 +45,4 @@ deploy_dev:
     name: development
     url: https://dev.pddbel.tk
   script:
-    - rsync -av --delete public /srv/nginx/$CI_COMMIT_REF_SLUG
+    - rsync -av --delete dist /srv/nginx/
