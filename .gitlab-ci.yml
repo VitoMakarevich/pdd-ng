@@ -10,11 +10,8 @@ cache:
   paths:
     - node_modules/
 
-install_stage:
-  stage: install
-  script:
-    - rm ./package-lock.json
-    - npm install
+before_script:
+  - npm install
 
 lint_stage:
   stage: lint
