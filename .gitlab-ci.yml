@@ -23,6 +23,9 @@ lint_stage:
     
 build_stage:
   stage: build
+  artifacts:
+    paths:
+      - dist
   script:
     - ./node_modules/@angular/cli/bin/ng build
 
