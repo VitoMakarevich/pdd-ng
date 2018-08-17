@@ -3,12 +3,9 @@
     width: 1.5rem;
     height: 1.3rem;
     margin: .5rem;
-    cursor: pointer;
-  }
-
-  &__id {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 }
