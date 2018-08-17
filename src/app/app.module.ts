@@ -11,6 +11,8 @@ import {MatRadioModule} from '@angular/material/radio'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatIconModule} from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table'
+import {MatDialogModule} from '@angular/material/dialog'
+import {MatButtonModule} from '@angular/material/button'
 
 import { AppComponent } from './app.component'
 import { NavigationComponent } from './navigation/navigation.component'
@@ -24,6 +26,7 @@ import { QuestionComponent } from './content/question/question.component'
 import { LoadingComponent } from './common/loading/loading.component'
 import { AnswerComponent } from './content/answer/answer.component'
 import { TicketResultComponent } from './content/ticket-result/ticket-result.component'
+import { DialogComponent } from './common/dialog/dialog.component'
 
 const routes: Routes = [
   {
@@ -63,6 +66,7 @@ const routes: Routes = [
     LoadingComponent,
     AnswerComponent,
     TicketResultComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,8 +80,11 @@ const routes: Routes = [
     MatCardModule,
     MatRadioModule,
     MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [TicketService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent],
 })
 export class AppModule { }
