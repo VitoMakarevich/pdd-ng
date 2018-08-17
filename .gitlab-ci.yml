@@ -20,6 +20,9 @@ lint_stage:
     
 build_stage:
   stage: build
+  artifacts:
+    paths: 
+      - dist
   script:
     - ./node_modules/@angular/cli/bin/ng build --progress false
 
@@ -36,7 +39,7 @@ deploy_prod:
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r dist root@pddbel.tk:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist root@pddbel.tk:/var/www/html
 
 deploy_dev:
   before_script:
