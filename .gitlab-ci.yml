@@ -33,22 +33,26 @@ deploy_prod:
     - apt-get update -qq && apt-get install -y -qq sshpass
   only:
     - master
+    - merge-requests
   environment:
     name: production
     url: https://pddbel.tk
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html/prod
 
 deploy_dev:
+  stage: deploy
   before_script:
     - apt-get update -qq && apt-get install -y -qq sshpass
-  stage: deploy
   only:
     - dev
+    - merge-requests
   environment:
-    name: development
+    name: production
     url: https://dev.pddbel.tk
   script:
-    - echo "deploy dev"
+    - sshpass -V
+    - export SSHPASS=$SSH_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html/dev
