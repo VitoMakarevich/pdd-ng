@@ -39,7 +39,7 @@ deploy_prod:
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r ./dist root@pddbel.tk:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html
 
 deploy_dev:
   before_script:
