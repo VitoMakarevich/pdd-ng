@@ -15,7 +15,7 @@ export class TicketComponent implements OnInit {
   private id: String
   private ticketId: Number
   private questions: Question[]
-  private loading: Boolean
+  loading: Boolean
 
   constructor(
     private route: ActivatedRoute,

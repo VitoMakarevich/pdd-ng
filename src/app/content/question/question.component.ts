@@ -17,11 +17,11 @@ export class QuestionComponent implements OnInit {
     return this.question.id
   }
 
-  private getText() {
+  getText() {
     return  this.question.text
   }
 
-  private getAnswers() {
+  getAnswers() {
     return this.question.answers
   }
 
@@ -29,7 +29,7 @@ export class QuestionComponent implements OnInit {
     return this.question.answers[0].id
   }
 
-  private getImage() {
+  getImage() {
     return this.question.imageName
   }
 
