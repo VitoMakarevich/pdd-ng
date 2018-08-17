@@ -42,6 +42,21 @@ deploy_prod:
     - export SSHPASS=$SSH_PASS 
     - sshpass -e scp -o stricthostkeychecking=no -r ./dist/web-pdd-ng/. root@pddbel.tk:/var/www/html/prod
 
+deploy_prod:
+  stage: deploy
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq sshpass
+  only:
+    - master
+    - merge-requests
+  environment:
+    name: staging
+    url: https://stage.pddbel.tk
+  script:
+    - sshpass -V
+    - export SSHPASS=$SSH_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/web-pdd-ng/. root@pddbel.tk:/var/www/html/stage
+
 deploy_dev:
   stage: deploy
   before_script:
@@ -50,8 +65,8 @@ deploy_dev:
     - dev
     - merge-requests
   environment:
-    name: production
-    url: https://dev.pddbel.tk
+    name: development
+    url: http://dev.pddbel.tk
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
