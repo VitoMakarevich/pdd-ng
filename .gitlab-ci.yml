@@ -1,14 +1,51 @@
-image: trion/ng-cli-karma
+image: node:latest
+
+stages:
+  - install
+  - lint
+  - build
+  - deploy
 
 cache:
   paths:
     - node_modules/
 
+before_script:
+  - npm install
+
+lint_stage:
+  stage: lint
+  script:
+    - ./node_modules/@angular/cli/bin/ng lint
+    
 build_stage:
   stage: build
-  environment: Stage
   script:
-    - rm ./package-lock.json
-    - npm install
-    - ./node_modules/@angular/cli/bin/ng lint
-    - ./node_modules/@angular/cli/bin/ng build
+    - ./node_modules/@angular/cli/bin/ng build --progress false
+
+deploy_prod:
+  stage: deploy
+  when: manual
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq sshpass
+  only:
+    - master
+  environment:
+    name: production
+    url: https://pddbel.tk
+  script:
+    - sshpass -V
+    - export SSHPASS=$SSH_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r dist root@pddbel.tk:/var/www/html
+
+deploy_dev:
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq sshpass
+  stage: deploy
+  only:
+    - dev
+  environment:
+    name: development
+    url: https://dev.pddbel.tk
+  script:
+    - echo "deploy dev"
