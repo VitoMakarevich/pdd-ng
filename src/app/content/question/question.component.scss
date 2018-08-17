@@ -8,13 +8,23 @@
 .question {
   margin: 1rem;
 
+  &__explanation-wrapper {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  &__explanation-button {
+    width: 80%;
+  }
+
   &__image-wrapper {
     display: flex;
     justify-content: center;
   }
 
   &__image {
-    width: 100%;
+    max-width: 100%;
   }
 
   &__answers {
