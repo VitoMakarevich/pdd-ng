@@ -24,7 +24,7 @@ build_stage:
     paths: 
       - dist
   script:
-    - ./node_modules/@angular/cli/bin/ng build --prod
+    - ./node_modules/@angular/cli/bin/ng build --prod --progress false
 
 deploy_prod:
   stage: deploy
