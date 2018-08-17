@@ -34,7 +34,9 @@ deploy_prod:
     name: production
     url: https://pddbel.tk
   script:
-    - echo "deploy prod"
+    - sshpass -V
+    - export SSHPASS=$SSH_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r dist root@pddbel.tk:/var/www/html
 
 deploy_dev:
   before_script:
