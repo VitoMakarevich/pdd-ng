@@ -40,7 +40,7 @@ deploy_prod:
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html/prod
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/web-pdd-ng/. root@pddbel.tk:/var/www/html/prod
 
 deploy_dev:
   stage: deploy
@@ -55,4 +55,4 @@ deploy_dev:
   script:
     - sshpass -V
     - export SSHPASS=$SSH_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/. root@pddbel.tk:/var/www/html/dev
+    - sshpass -e scp -o stricthostkeychecking=no -r ./dist/web-pdd-ng/. root@pddbel.tk:/var/www/html/dev
