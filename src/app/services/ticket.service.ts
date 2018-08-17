@@ -14,12 +14,12 @@ export class TicketService {
   constructor(private http: HttpClient) { }
 
   public getTickets() {
-    return this.http.get<TicketsResponse>('http://localhost/api/tickets')
+    return this.http.get<TicketsResponse>(`http://${environment.apiRoot}/api/tickets`)
       .pipe(
         map(ticketsResponse => ticketsResponse.tickets)
       )
   }
   public getTicket(id: String) {
-    return this.http.get<TicketContent>(`http://localhost/api/ticket?id=${id}`)
+    return this.http.get<TicketContent>(`http://${environment.apiRoot}/api/ticket?id=${id}`)
   }
 }

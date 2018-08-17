@@ -12,7 +12,7 @@ export class AnswerComponent implements OnInit {
   @Input() questionId: Number
   @Output() answerEmitter = new EventEmitter<Number>()
 
-  private isQuestionAnswered: Boolean
+  isQuestionAnswered: Boolean
   constructor(private ticketAnswer: TicketAnswerService) {
     this.isQuestionAnswered = false
   }

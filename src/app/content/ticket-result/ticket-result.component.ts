@@ -8,8 +8,8 @@ import { UserAnswer } from '../..//models'
   styleUrls: ['./ticket-result.component.scss']
 })
 export class TicketResultComponent implements OnInit {
-  private dataSource: UserAnswer[]
-  private displayedColumns: String[] = [
+  dataSource: UserAnswer[]
+  displayedColumns: String[] = [
     'answerId',
     'isTrue'
   ]

@@ -9,7 +9,7 @@ import { TicketService } from '../../services/ticket.service'
 export class TicketsComponent implements OnInit {
 
   private tickets: Ticket[]
-  private loading: boolean
+  loading: boolean
 
   constructor(private ticketService: TicketService) {this.loading = true }
 
