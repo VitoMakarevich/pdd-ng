@@ -9,8 +9,8 @@ import { TicketAnswerService } from '../../services/ticket-answer.service'
 })
 export class AnswerComponent implements OnInit {
   @Input() answer: Answer
-  @Input() questionId: Number
-  @Output() answerEmitter = new EventEmitter<Number>()
+  @Input() questionId: number
+  @Output() answerEmitter = new EventEmitter<number>()
 
   isQuestionAnswered: Boolean
   constructor(private ticketAnswer: TicketAnswerService) {

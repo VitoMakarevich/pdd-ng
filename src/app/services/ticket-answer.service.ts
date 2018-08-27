@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs'
   providedIn: 'root'
 })
 export class TicketAnswerService {
-  public static ticketLength = 20
+  public static ticketLength = 2
 
   private userAnswers: UserAnswer[]
   private userAnswered: Subject<UserAnswer>
@@ -16,10 +16,19 @@ export class TicketAnswerService {
     this.userAnswered = new Subject()
   }
 
+  public clear() {
+    this.userAnswers = []
+    this.userAnswered = new Subject()
+  }
+
+  public isCompleted() {
+    return this.userAnswers.length === TicketAnswerService.ticketLength
+  }
+
   public setAnswer(userAnswer: UserAnswer) {
     this.userAnswers.push(userAnswer)
     this.userAnswered.next(userAnswer)
-    if (this.userAnswers.length === TicketAnswerService.ticketLength) {
+    if (this.isCompleted()) {
         this.userAnswered.complete()
     }
   }
