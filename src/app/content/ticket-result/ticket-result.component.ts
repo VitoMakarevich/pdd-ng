@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { TicketAnswerService } from '../../services/ticket-answer.service'
 import { UserAnswer } from '../..//models'
 
@@ -7,17 +7,19 @@ import { UserAnswer } from '../..//models'
   templateUrl: './ticket-result.component.html',
   styleUrls: ['./ticket-result.component.scss']
 })
-export class TicketResultComponent implements OnInit {
+export class TicketResultComponent implements OnDestroy {
   dataSource: UserAnswer[]
   displayedColumns: String[] = [
-    'answerId',
+    'questionId',
     'isTrue'
   ]
   constructor(private ticketAnswerService: TicketAnswerService) {
-    this.dataSource = this.ticketAnswerService.getUserAnswers()
+    this.dataSource = this.ticketAnswerService
+      .getUserAnswers()
+      .sort((userAnswer1, userAnswer2) => userAnswer1.questionId - userAnswer2.questionId)
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    this.ticketAnswerService.clear()
   }
-
 }

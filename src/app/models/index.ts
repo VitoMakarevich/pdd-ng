@@ -1,5 +1,5 @@
 export interface Ticket {
-  id: Number
+  id: number
 }
 export interface Answer {
   id: number
@@ -23,7 +23,7 @@ export interface TicketsResponse {
 }
 
 export interface UserAnswer {
-  answerId: Number,
-  questionId: Number,
-  isTrue: Boolean,
+  answerId: number,
+  questionId: number,
+  isTrue: boolean,
 }
