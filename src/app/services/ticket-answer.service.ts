@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs'
   providedIn: 'root'
 })
 export class TicketAnswerService {
-  public static ticketLength = 2
+  public static ticketLength = 20
 
   private ticketId: number
   private userAnswers: UserAnswer[]
