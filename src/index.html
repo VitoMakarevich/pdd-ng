@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Билеты ПДД</title>
+  <title>Билеты ПДД РБ</title>
   <base href="/pdd">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,5 +12,18 @@
 </head>
 <body>
   <app-root></app-root>
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBHeWGK1btoleG6_u21M7WhF0YyIgM4JVE",
+      authDomain: "pdd-bel.firebaseapp.com",
+      databaseURL: "https://pdd-bel.firebaseio.com",
+      projectId: "pdd-bel",
+      storageBucket: "pdd-bel.appspot.com",
+      messagingSenderId: "449608313476"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
 </html>
