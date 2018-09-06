@@ -27,3 +27,13 @@ export interface UserAnswer {
   questionId: number,
   isTrue: boolean,
 }
+
+export interface FinishedTicket {
+    id: number,
+    rightAnswersCount: number,
+    totalAnswersCount: number,
+}
+
+export interface SavedTicket extends FinishedTicket {
+    datetime: Date,
+}

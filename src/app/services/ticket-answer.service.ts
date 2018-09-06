@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs'
 export class TicketAnswerService {
   public static ticketLength = 2
 
+  private ticketId: number
   private userAnswers: UserAnswer[]
   private userAnswered: Subject<UserAnswer>
 
@@ -17,6 +18,7 @@ export class TicketAnswerService {
   }
 
   public clear() {
+    this.ticketId = undefined
     this.userAnswers = []
     this.userAnswered = new Subject()
   }
@@ -39,5 +41,13 @@ export class TicketAnswerService {
 
   public getAnswer(): Observable<UserAnswer> {
     return this.userAnswered
+  }
+
+  public getTicketId(): number {
+    return this.ticketId
+  }
+
+  public setTicketId(id: number) {
+    this.ticketId = id
   }
 }
