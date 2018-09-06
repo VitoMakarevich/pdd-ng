@@ -1,0 +1,21 @@
+.results {
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+  }
+
+  &__icon {
+    height: 10rem;
+    width: 10rem;
+  }
+}
