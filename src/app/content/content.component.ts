@@ -9,8 +9,8 @@ import { Routes } from '@angular/router'
 export class ContentComponent implements OnInit {
 
   navLinks = [
-    {path: 'tickets', label: 'Tickets'},
-    {path: 'results', label: 'Results'}
+    {path: 'tickets', label: 'Билеты'},
+    {path: 'results', label: 'Результаты'}
   ]
 
   constructor() {

@@ -1,5 +1,5 @@
 export interface Ticket {
-  id: Number
+  id: number
 }
 export interface Answer {
   id: number
@@ -23,7 +23,17 @@ export interface TicketsResponse {
 }
 
 export interface UserAnswer {
-  answerId: Number,
-  questionId: Number,
-  isTrue: Boolean,
+  answerId: number,
+  questionId: number,
+  isTrue: boolean,
+}
+
+export interface FinishedTicket {
+    id: number,
+    rightAnswersCount: number,
+    totalAnswersCount: number,
+}
+
+export interface SavedTicket extends FinishedTicket {
+    datetime: Date,
 }

@@ -21,4 +21,17 @@
     >
     </app-answer>
   </mat-radio-group>
+  <div
+    *ngIf='ticketAnswered'
+    class='question__explanation-wrapper'
+  >
+    <button
+      mat-raised-button
+      color='accent'
+      class='question__explanation-button'
+      (click)='showExplanation()'
+    >
+      Пояснение
+    </button>
+  </div>
 </div>
