@@ -12,9 +12,11 @@ import {MatCardModule} from '@angular/material/card'
 import {MatRadioModule} from '@angular/material/radio'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatIconModule} from '@angular/material/icon'
+import {MatExpansionModule} from '@angular/material/expansion'
 import {MatTableModule} from '@angular/material/table'
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatButtonModule} from '@angular/material/button'
+import {MatListModule} from '@angular/material/list'
 
 import { AppComponent } from './app.component'
 import { NavigationComponent } from './navigation/navigation.component'
@@ -31,6 +33,7 @@ import { TicketResultComponent } from './content/ticket-result/ticket-result.com
 import { DialogComponent } from './common/dialog/dialog.component'
 import { TicketStorageService } from './services/ticket-storage.service'
 import { EmptyComponent } from './content/results/empty/empty.component'
+import { PolicyComponent } from './content/policy/policy.component'
 
 const routes: Routes = [
   {
@@ -50,10 +53,13 @@ const routes: Routes = [
     path: 'tickets/:id',
     component: TicketComponent,
   },
-
   {
     path: 'results',
     component: ResultsComponent
+  },
+  {
+    path: 'policy',
+    component: PolicyComponent
   }
 ]
 
@@ -72,6 +78,7 @@ const routes: Routes = [
     TicketResultComponent,
     DialogComponent,
     EmptyComponent,
+    PolicyComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,7 +92,9 @@ const routes: Routes = [
     MatCardModule,
     MatRadioModule,
     MatIconModule,
+    MatExpansionModule,
     MatButtonModule,
+    MatListModule,
     MatDialogModule,
     Ng2Webstorage,
   ],
